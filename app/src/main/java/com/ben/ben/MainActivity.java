@@ -14,5 +14,7 @@ public class MainActivity extends AppCompatActivity {
                 AppConnect.getInstance("394715c017e8e93a0e6959f16c8f3926","default",this);
                 AppConnect.getInstance(this).showOffers(this);
 
+                getIntent();
+
         }
 }
