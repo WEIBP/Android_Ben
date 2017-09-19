@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
                 AppConnect.getInstance(this).showOffers(this);
 
                 getIntent();
+                getIntent();
 
         }
 }
