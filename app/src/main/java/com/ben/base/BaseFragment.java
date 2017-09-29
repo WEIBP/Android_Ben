@@ -1,4 +1,4 @@
-package com.ben.ben.base;
+package com.ben.base;
 
 import android.app.ProgressDialog;
 import android.content.Intent;

@@ -2,14 +2,12 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="com.ben.core.TestFragment">
+             tools:context="com.ben.ben.core.DevelopFragment">
 
     <Button
-        android:id="@+id/btn_showinfo"
+        android:id="@+id/btn_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="6dp"
-        android:text="175综合展示测试"
-        />
+        android:text="定位"/>
 
 </FrameLayout>

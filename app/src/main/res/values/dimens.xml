@@ -5,4 +5,22 @@
     <dimen name="nav_header_vertical_spacing">16dp</dimen>
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="main_left_menu_width">50dp</dimen>
+
+
+    <dimen name="font_24">24sp</dimen>
+    <dimen name="font_18">18sp</dimen>
+    <dimen name="font_12">12sp</dimen>
+    <dimen name="font_16">16sp</dimen>
+    <dimen name="font_6">6sp</dimen>
+
+
+    <dimen name="base3">3dp</dimen>
+    <dimen name="base5">5dp</dimen>
+    <dimen name="normal_margin">10dp</dimen>
+
+    <dimen name="margin_left">15dp</dimen>
+    <dimen name="margin_right">15dp</dimen>
+    <dimen name="margin_middle">2dp</dimen>
 </resources>

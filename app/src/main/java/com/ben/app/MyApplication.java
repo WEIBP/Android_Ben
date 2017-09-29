@@ -1,4 +1,4 @@
-package com.ben.ben.app;
+package com.ben.app;
 
 import android.app.Application;
 import android.content.Context;

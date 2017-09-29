@@ -1,119 +1,153 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:background="@color/contetnbackground"
               android:orientation="horizontal"
               android:id="@+id/root_view">
-    <View
-        android:layout_width="50dp"
-        android:layout_height="match_parent"
-        android:background="@color/cardbackground"/>
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:orientation="vertical">
 
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_margin="3dp"
-            android:layout_weight="1"
-            android:padding="3dp"
-            app:cardCornerRadius="4dp"
-            >
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/cardbackground">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/cardbackground"
-                    android:orientation="vertical"
-                    android:paddingLeft="6dp">
-
-                    <TextView
-                        android:id="@+id/textView14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="十九大召开"
-                        android:textColor="@color/white"
-                        android:textSize="24dp"/>
-
-                    <TextView
-                        android:id="@+id/textView10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:text="@string/content_text"
-                        android:textColor="@color/white"/>
-                </LinearLayout>
-
-            </ScrollView>
-
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_margin="3dp"
-            android:layout_weight="2"
-            app:cardCornerRadius="4dp"
-            >
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/zhihuijiagou"/>
-        </android.support.v7.widget.CardView>
-
-    </LinearLayout>
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="@dimen/main_left_menu_width"
+            android:layout_height="match_parent"
+            android:background="@color/cardbackground" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="@color/cardbackground"
+                android:layout_height="wrap_content"
                 android:layout_margin="3dp">
-                <com.github.mikephil.charting.charts.BarChart
-                    android:id="@+id/chart2"
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/cardbackground" />
+                    android:layout_height="wrap_content"
+                    android:minHeight="120dp"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal"
+                    android:background="@color/cardbackground">
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="0dp"
+                        android:layout_weight="5"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/font_24"
+                        android:textColor="@color/white"
+                        android:text="全部：1117          局领导：6           处领导：210         干部：701          士官：100          战士：100"/>
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="120dp"
+                        android:src="@drawable/piechart"/>
+                </LinearLayout>
+
             </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="@color/cardbackground"
-                android:layout_margin="3dp">
-                <com.github.mikephil.charting.charts.PieChart
-                    android:id="@+id/chart1"
-                    android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:background="@color/cardbackground"
-                    />
-            </android.support.v7.widget.CardView>
+                    android:layout_margin="3dp">
+
+                    <ListView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/list_left"
+                        android:background="@color/cardbackground" />
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:background="@color/cardbackground"
+                    android:layout_margin="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/contetnbackground"
+                        android:orientation="vertical">
+
+
+                        <android.support.v7.widget.CardView
+                            android:layout_width="@dimen/base200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/base3dp"
+                            app:cardCornerRadius="@dimen/base4dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/white1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/light_black"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:textSize="@dimen/font_18"
+                                    android:id="@+id/text_name"/>
+
+                                <android.support.v7.widget.RecyclerView
+                                    android:id="@+id/list_person"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                </android.support.v7.widget.RecyclerView>
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+
+                        <View
+                            android:layout_width="@dimen/base1dp"
+                            android:layout_height="@dimen/base20dp"
+                            android:layout_gravity="center"
+                            android:background="@color/white_70"/>
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/list_card"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/base6dp"/>
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/cardbackground"
+                    android:layout_margin="3dp">
+                    <ListView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/list_right"
+                        android:background="@color/cardbackground" />
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
-
 
 </LinearLayout>
 

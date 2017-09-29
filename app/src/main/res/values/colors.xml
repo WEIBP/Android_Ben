@@ -6,6 +6,23 @@
 
     <color name="contetnbackground">#354057</color>
     <color name="cardbackground">#2B2E3D</color>
+    <color name="cardbackground2">#012D50</color>
 
     <color name="white">#ffffff</color>
+
+    <color name="light_black">#191919</color>
+    <color name="text_default">#191919</color>
+    <color name="transparent">@android:color/transparent</color>
+
+    <color name="white_70">#ADFFFFFF</color>
+
+    <color name="header_gray">#8a8a8a</color>
+
+    <color name="border">#54FF9F</color>
+
+    <color name="white1">#FFFAFA</color>
+
+
+
+
 </resources>

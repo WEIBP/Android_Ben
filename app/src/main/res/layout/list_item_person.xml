@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/button_person"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="@dimen/base3dp"
+    android:padding="@dimen/base5"
+    android:background="@drawable/check_border"
+    android:gravity="center"
+    android:textSize="@dimen/font_16"/>
