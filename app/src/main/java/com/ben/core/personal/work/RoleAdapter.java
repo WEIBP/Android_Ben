@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.v7.app.AlertDialog;
 
 import com.ben.R;
-import com.ben.app.MyApplication;
 import com.chad.library.adapter.base.BaseSectionQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 

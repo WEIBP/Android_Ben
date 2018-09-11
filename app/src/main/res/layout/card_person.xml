@@ -1,12 +1,10 @@
 <android.support.v7.widget.CardView
     android:layout_marginLeft="@dimen/base6dp"
     android:layout_marginRight="@dimen/base6dp"
-    android:layout_width="@dimen/base70dp"
+    android:layout_width="@dimen/base75dp"
     android:layout_height="wrap_content"
-
     android:minHeight="@dimen/base200dp"
     app:cardCornerRadius="@dimen/base4dp"
-
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -14,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:minHeight="@dimen/base200dp"
-        android:minWidth="@dimen/base70dp"
+        android:minWidth="@dimen/base75dp"
         android:background="@color/white1"
         android:orientation="vertical">
         <TextView

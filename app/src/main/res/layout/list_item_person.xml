@@ -5,8 +5,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_margin="@dimen/base3dp"
-    android:padding="@dimen/base5"
+    android:layout_margin="@dimen/base2dp"
+    android:padding="@dimen/base3"
     android:background="@drawable/check_border"
     android:gravity="center"
     android:textSize="@dimen/font_16"/>
