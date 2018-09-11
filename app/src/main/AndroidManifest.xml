@@ -79,7 +79,7 @@
         </activity>
         <activity android:name=".core.personal.ConvertLocationActivity" >
         </activity>
-        <activity android:name=".core.personal.WifiActivity" >
+        <activity android:name=".core.personal.wifi.WifiActivity" >
         </activity>
         <activity android:name=".core.personal.PersonalViewActivity" >
         </activity>

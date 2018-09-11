@@ -12,6 +12,7 @@ import com.ben.base.BaseFragment;
 import com.ben.base.BaseListItemBean;
 import com.ben.core.location.Location_Activity;
 import com.ben.core.personal.traning.TraningActivity;
+import com.ben.core.personal.wifi.WifiActivity;
 import com.ben.core.personal.work.NewZuzhijiagouActivity;
 import java.util.ArrayList;
 import java.util.List;

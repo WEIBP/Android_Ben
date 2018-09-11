@@ -1,4 +1,4 @@
-package com.ben.core.personal;
+package com.ben.core.personal.wifi;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import butterknife.BindView;
@@ -13,8 +15,15 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.ben.R;
 import com.ben.base.BaseActivity;
+import com.ben.common.Log.L;
 import java.io.DataOutputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.UnknownHostException;
 
 public class WifiActivity extends BaseActivity {
 
@@ -73,7 +82,7 @@ public class WifiActivity extends BaseActivity {
                 return sb.toString();
         }
 
-        @OnClick({ R.id.button_setwifi, R.id.button_wifihot })
+        @OnClick({ R.id.button_setwifi, R.id.button_wifihot ,R.id.button_senddata})
         public void onViewClicked(View view) {
                 switch (view.getId()) {
                         case R.id.button_setwifi:
@@ -92,6 +101,15 @@ public class WifiActivity extends BaseActivity {
                                 intent.setComponent(comp);
                                 startActivity(intent);
                                 break;
+                        case R.id.button_senddata:
+                                //todo 建立socket 接受数据
+                                ClientManager.startServer(5088);
+                                break;
                 }
+        }
+
+        @Override protected void onDestroy() {
+                super.onDestroy();
+                ClientManager.shutDown();
         }
 }
