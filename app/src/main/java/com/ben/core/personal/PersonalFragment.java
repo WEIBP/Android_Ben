@@ -29,7 +29,7 @@ public class PersonalFragment extends BaseFragment {
 
         @Override protected void initView(View view) {
                 List<MySection> mySections = new ArrayList<>();
-                mySections.add(new MySection(true, "开发功能"));
+                mySections.add(new MySection(true, "开发"));
                 mySections.add(new MySection(
                         new BaseListItemBean("Service列表", R.drawable.keybord, "", "", 0,
                                 v -> startActivity(
@@ -65,11 +65,20 @@ public class PersonalFragment extends BaseFragment {
                         new BaseListItemBean("自定义控件", R.drawable.testnet, "", "", 0,
                                 v -> startActivity(
                                         new Intent(getActivity(), WifiActivity.class)))));
-                mySections.add(new MySection(true, "常用功能"));
+                mySections.add(new MySection(
+                        new BaseListItemBean("支付功能", R.drawable.testnet, "", "", 0,
+                                v -> startActivity(
+                                        new Intent(getActivity(), Location_Activity.class)))));
+
+
+                mySections.add(new MySection(true, "应用"));
                 mySections.add(new MySection(
                         new BaseListItemBean("我的关注", R.drawable.stock, "", "", 0,
                                 v -> startActivity(
                                         new Intent(getActivity(), Location_Activity.class)))));
+
+
+
                 mySections.add(new MySection(true, "工作"));
                 mySections.add(new MySection(
                         new BaseListItemBean("综合展示", R.drawable.work, "", "", 0, v -> startActivity(
@@ -77,11 +86,15 @@ public class PersonalFragment extends BaseFragment {
                 mySections.add(new MySection(
                         new BaseListItemBean("指挥架构", R.drawable.work, "", "", 0, v -> startActivity(
                                 new Intent(getActivity(), NewZuzhijiagouActivity.class)))));
-                mySections.add(new MySection(true, "training"));
+
+
+                mySections.add(new MySection(true, "练习"));
                 mySections.add(new MySection(
                         new BaseListItemBean("training", R.drawable.work, "", "", 0,
                                 v -> startActivity(
                                         new Intent(getActivity(), TraningActivity.class)))));
+
+
                 mySections.add(new MySection(true, "个人"));
                 mySections.add(new MySection(
                         new BaseListItemBean("数据模拟", R.drawable.work, "", "", 0, v -> startActivity(
