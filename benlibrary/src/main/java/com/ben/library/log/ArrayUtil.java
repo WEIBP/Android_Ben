@@ -1,6 +1,7 @@
-package com.ben.common.Log;
+package com.ben.library.log;
 
 import android.util.Pair;
+
 import java.util.Arrays;
 
 /**

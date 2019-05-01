@@ -8,8 +8,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.ben.R;
 import com.ben.base.BaseActivity;
-import com.ben.common.Log.L;
 import com.ben.common.net.RetrofitManager;
+import com.ben.library.log.L;
 import com.blankj.utilcode.util.EmptyUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -36,6 +36,7 @@ public class PeopleAddActivity extends BaseActivity {
                         ToastUtils.showShort("请填入信息！");
                         return;
                 }
+                L.object("test");
                 PeopleBean peopleBean = new PeopleBean();
                 peopleBean.setCellphone(editCall.getText().toString());
                 peopleBean.setName(editName.getText().toString());

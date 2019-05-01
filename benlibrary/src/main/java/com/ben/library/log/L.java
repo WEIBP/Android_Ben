@@ -1,4 +1,4 @@
-package com.ben.common.Log;
+package com.ben.library.log;
 
 /**
  * Created by WBP on 16/4/8.
