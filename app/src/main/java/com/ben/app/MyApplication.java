@@ -3,6 +3,7 @@ package com.ben.app;
 import android.app.Application;
 import android.content.Context;
 
+import com.ben.library.BenUtils;
 import com.blankj.utilcode.util.Utils;
 
 /**
@@ -18,6 +19,7 @@ public class MyApplication extends Application {
                 super.onCreate();
                 mApplicationContext = this;
                 Utils.init(mApplicationContext);
+                BenUtils.init(mApplicationContext);
         }
 
         // 获取ApplicationContext

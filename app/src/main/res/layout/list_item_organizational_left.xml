@@ -13,18 +13,18 @@
         android:weightSum="2">
         <View
             android:layout_width="0dp"
-            android:layout_height="@dimen/base1dp"
+            android:layout_height="1dp"
             android:layout_weight="1"
             android:background="@color/transparent"/>
         <View
             android:layout_width="0dp"
-            android:layout_height="@dimen/base1dp"
+            android:layout_height="1dp"
             android:layout_weight="1"
             android:background="@color/white"/>
     </LinearLayout>
     <View
-        android:layout_width="@dimen/base1dp"
-        android:layout_height="@dimen/base10dp"
+        android:layout_width="1dp"
+        android:layout_height="10dp"
         android:layout_gravity="center"
         android:background="@color/white"/>
 

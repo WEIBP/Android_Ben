@@ -5,25 +5,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
-import android.os.Bundle;
-import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+
 import com.ben.R;
 import com.ben.base.BaseActivity;
-import com.ben.common.Log.L;
+
 import java.io.DataOutputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.UnknownHostException;
+
+import butterknife.BindView;
+import butterknife.OnClick;
 
 public class WifiActivity extends BaseActivity {
 

@@ -1,18 +1,18 @@
-<android.support.v7.widget.CardView
-    android:layout_marginLeft="@dimen/base6dp"
-    android:layout_marginRight="@dimen/base6dp"
-    android:layout_width="@dimen/base75dp"
+<androidx.cardview.widget.CardView
+    android:layout_marginLeft="6dp"
+    android:layout_marginRight="6dp"
+    android:layout_width="75dp"
     android:layout_height="wrap_content"
-    android:minHeight="@dimen/base200dp"
-    app:cardCornerRadius="@dimen/base4dp"
+    android:minHeight="200dp"
+    app:cardCornerRadius="4dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:minHeight="@dimen/base200dp"
-        android:minWidth="@dimen/base75dp"
+        android:minHeight="200dp"
+        android:minWidth="75dp"
         android:background="@color/white1"
         android:orientation="vertical">
         <TextView
@@ -23,11 +23,11 @@
             android:gravity="center"
             android:textSize="@dimen/font_18"
             android:id="@+id/text_name"/>
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/list_person">
 
-        </android.support.v7.widget.RecyclerView>
+        </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
-</android.support.v7.widget.CardView>
+</androidx.cardview.widget.CardView>

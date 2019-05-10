@@ -2,7 +2,7 @@ package com.ben.core.personal;
 
 import com.ben.R;
 import com.ben.base.BaseActivity;
-import com.ben.common.Log.L;
+import com.ben.library.log.L;
 import com.blankj.utilcode.constant.TimeConstants;
 import com.blankj.utilcode.util.TimeUtils;
 import java.util.Random;

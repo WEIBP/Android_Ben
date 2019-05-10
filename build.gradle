@@ -2,16 +2,18 @@
 
 buildscript {
     repositories {
+        maven{ url = "http://maven.aliyun.com/nexus/content/groups/public/" }
+        mavenCentral()
         jcenter()
-      maven {
-        url 'https://maven.google.com/'
-        name 'Google'
-      }
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.0'
-
+        classpath 'com.android.tools.build:gradle:3.3.2'
+        classpath "guru.stefma.bintrayrelease:bintrayrelease:1.1.2"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -19,11 +21,22 @@ buildscript {
 
 allprojects {
     repositories {
+        maven{ url = "http://maven.aliyun.com/nexus/content/groups/public/" }
+        mavenCentral()
         jcenter()
-      maven {
-        url 'https://maven.google.com/'
-        name 'Google'
-      }
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+        google()
+    }
+
+    tasks.withType(Javadoc) {
+        options {
+            encoding "UTF-8"
+            charSet 'UTF-8'
+            links "http://docs.oracle.com/javase/7/docs/api"
+        }
     }
 }
 

@@ -1,5 +1,6 @@
 package com.ben.core.location;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.Service;
 import android.content.Context;
@@ -9,8 +10,8 @@ import android.os.Build;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
@@ -45,6 +46,7 @@ public class LocationService extends Service {
     private int portInt;
     private int timeInt;
 
+    @SuppressLint("InvalidWakeLockTag")
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onCreate() {

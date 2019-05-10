@@ -1,19 +1,17 @@
 package com.ben.core.personal;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ben.R;
-import com.ben.app.MyApplication;
 import com.ben.core.personal.treelist.FileBean;
 import com.ben.core.personal.treelist.SimpleTreeAdapter;
 import com.ben.core.personal.treelist.TreeListViewAdapter;

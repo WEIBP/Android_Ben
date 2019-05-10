@@ -1,7 +1,7 @@
 package com.ben.core.personal.work;
 
 import android.content.Context;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 
 import com.ben.R;
 import com.chad.library.adapter.base.BaseSectionQuickAdapter;

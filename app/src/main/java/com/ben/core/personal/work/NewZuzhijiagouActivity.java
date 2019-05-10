@@ -4,17 +4,15 @@ package com.ben.core.personal.work;
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.ben.R;
-import com.ben.base.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,7 +8,7 @@
     tools:context="com.ben.core.personal.traning.TraningActivity"
     >
   <include layout="@layout/toolbar_main" android:id="@+id/layout"/>
-  <android.support.v7.widget.RecyclerView
+  <androidx.recyclerview.widget.RecyclerView
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       app:layout_constraintLeft_toLeftOf="parent"
@@ -25,6 +25,6 @@
       android:id="@+id/button_tell"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/layout"
-      android:layout_marginLeft="@dimen/base3dp"
+      android:layout_marginLeft="3dp"
       />
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,8 @@
 package com.ben.core.personal;
 
 import android.app.ActivityManager;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.Nullable;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
 
 import com.ben.R;
 import com.chad.library.adapter.base.BaseQuickAdapter;

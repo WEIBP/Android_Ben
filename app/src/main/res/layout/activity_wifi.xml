@@ -14,7 +14,7 @@
         android:id="@+id/text_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/base5dp"
+        android:layout_margin="5dp"
         android:layout_gravity="center_horizontal"/>
 
     <LinearLayout
@@ -26,7 +26,7 @@
             android:id="@+id/button_openwifi"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/base10dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
             android:text="开启Wifi调试"/>
@@ -37,7 +37,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginTop="@dimen/base10dp"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center_horizontal"
             android:text="打开或关闭wifi"/>
     </LinearLayout>
@@ -52,7 +52,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginTop="@dimen/base10dp"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center_horizontal"
             android:text="打开WiFi热点"/>
 
