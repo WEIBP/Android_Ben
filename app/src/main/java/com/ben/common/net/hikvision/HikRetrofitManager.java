@@ -1,16 +1,20 @@
-package com.ben.common.net;
+package com.ben.common.net.hikvision;
 
 import android.util.Log;
+
 import com.ben.app.MyApplication;
+import com.ben.common.net.DemoService;
+import com.ben.common.net.RetrofitManager;
 import com.ben.core.worktest.PeopleBean;
-import com.ben.core.worktest.PeopleListActivity;
 import com.ben.core.worktest.PeopleListBean;
 import com.ben.core.worktest.ResponseBean;
 import com.blankj.utilcode.util.NetworkUtils;
-import io.reactivex.Observable;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+
+import io.reactivex.Observable;
 import okhttp3.Cache;
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;
@@ -22,11 +26,7 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * Created by ben on 16/3/15.
- */
-public class RetrofitManager {
-
+public class HikRetrofitManager {
     public static final String API_SERVER = "http://101.132.137.31:8899/";
 
     //短缓存有效期为1分钟
@@ -40,19 +40,14 @@ public class RetrofitManager {
     public static final String CACHE_CONTROL_CACHE = "only-if-cached, max-stale=" + CACHE_STALE_LONG;
     //查询网络的Cache-Control设置，头部Cache-Control设为max-age=0时则不会使用缓存而请求服务器
     public static final String CACHE_CONTROL_NETWORK = "max-age=0";
-
-    public static final String HOST = "10.19.141.36:443";
-    public static final String APP_KEY = "25031676";
-    public static final String APP_SECRET = "r7ZfY41RORIrHjNvlEQD";
-
     private static OkHttpClient mOkHttpClient;
-    private  DemoService demoService;
+    private DemoService demoService;
 
-    public static RetrofitManager builder(){
-        return new RetrofitManager();
+    public static HikRetrofitManager builder(){
+        return new HikRetrofitManager();
     }
 
-    private RetrofitManager() {
+    private HikRetrofitManager() {
 
         initOkHttpClient();
 
@@ -82,8 +77,11 @@ public class RetrofitManager {
 
                     mOkHttpClient = new OkHttpClient.Builder()
                             .cache(cache)
+                            .sslSocketFactory(TrustAllCerts.createSSLSocketFactory(),
+                                    new TrustAllCerts())
                             .addInterceptor(mRewriteCacheControlInterceptor)
                             .addNetworkInterceptor(mRewriteCacheControlInterceptor)
+                            .addInterceptor(new HikHeaderInterceptor())
                             .addInterceptor(interceptor)
                             .retryOnConnectionFailure(true)
                             .connectTimeout(6, TimeUnit.SECONDS)
@@ -105,6 +103,8 @@ public class RetrofitManager {
                 request = request.newBuilder().cacheControl(CacheControl.FORCE_CACHE).build();
             }
             Response originalResponse = chain.proceed(request);
+
+
             if (NetworkUtils.isConnected()) {
                 //有网的时候读接口上的@Headers里的配置，你可以在这里进行统一的设置
                 String cacheControl = request.cacheControl().toString();
@@ -120,6 +120,17 @@ public class RetrofitManager {
 
 
 
+
+    public Observable<String> getCamera(){
+        HikBean bean = new HikBean();
+        bean.setPageNo(1);
+        bean.setPageSize(20);
+        bean.setTreeCode("0");
+        return  demoService.getCamera(bean);
+    }
+
+
+
     public Observable<PeopleListBean> getList(){
         return  demoService.getList();
     }
@@ -131,7 +142,4 @@ public class RetrofitManager {
     public Observable<ResponseBean> deletePeople( int id){
         return  demoService.deletePeople(id);
     }
-
 }
-
-
