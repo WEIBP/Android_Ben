@@ -84,7 +84,7 @@ public class RetrofitManager {
                             .cache(cache)
                             .addInterceptor(mRewriteCacheControlInterceptor)
                             .addNetworkInterceptor(mRewriteCacheControlInterceptor)
-                            .addInterceptor(interceptor)
+                            .addInterceptor(new LoggingInterceptor())
                             .retryOnConnectionFailure(true)
                             .connectTimeout(6, TimeUnit.SECONDS)
                             .writeTimeout(6, TimeUnit.SECONDS)

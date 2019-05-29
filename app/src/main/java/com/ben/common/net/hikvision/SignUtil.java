@@ -58,7 +58,6 @@ public class SignUtil {
 
         sb.append(buildHeaders(headers, signHeaderPrefixList));
         sb.append(buildResource(path, querys, bodys));
-        L.object(sb);
         return sb.toString();
     }
 

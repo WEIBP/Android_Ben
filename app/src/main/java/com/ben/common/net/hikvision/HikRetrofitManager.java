@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.ben.app.MyApplication;
 import com.ben.common.net.DemoService;
+import com.ben.common.net.LoggingInterceptor;
 import com.ben.common.net.RetrofitManager;
 import com.ben.core.worktest.PeopleBean;
 import com.ben.core.worktest.PeopleListBean;
@@ -66,8 +67,7 @@ public class HikRetrofitManager {
     }
 
     private void initOkHttpClient() {
-        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        LoggingInterceptor interceptor = new LoggingInterceptor();
         if (mOkHttpClient == null) {
             synchronized (RetrofitManager.class) {
                 if (mOkHttpClient == null) {
