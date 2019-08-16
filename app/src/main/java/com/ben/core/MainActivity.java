@@ -1,14 +1,24 @@
 package com.ben.core;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+
+import com.ben.common.net.hikvision.HikRetrofitManager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,12 +28,27 @@ import com.ben.common.net.RetrofitManager;
 import com.ben.core.personal.PersonalFragment;
 import com.ben.library.log.L;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity
                 implements NavigationView.OnNavigationItemSelectedListener {
 
+        private static final String TAG = "MainActivity";
+        private static final int REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS = 123;
+
+        @SuppressLint("CheckResult")
         @Override protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
                 setContentView(R.layout.activity_main);
@@ -37,6 +62,7 @@ public class MainActivity extends AppCompatActivity
                                                 Snackbar.LENGTH_LONG)
                                                 .setAction("Action", null)
                                                 .show();
+                                testHik();
                         }
                 });
 
@@ -58,15 +84,37 @@ public class MainActivity extends AppCompatActivity
                                 .replace(R.id.content_view, personalFragment)
                                 .commit();
 
-                RetrofitManager.builder()
-                                .getList()
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(bean -> {
-                                        L.object(bean);
-                                }, throwable -> {
 
-                                });
+                applyPermission();
+
+
+        }
+
+        @SuppressLint("CheckResult")
+        private void testHik() {
+
+                HikRetrofitManager.builder()
+                        .getCamera()
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(bean -> {
+                                L.object(bean);
+                        }, throwable -> {
+
+                        });
+
+
+
+
+//                RetrofitManager.builder()
+//                                .getList()
+//                                .subscribeOn(Schedulers.io())
+//                                .observeOn(AndroidSchedulers.mainThread())
+//                                .subscribe(bean -> {
+//                                        L.object(bean);
+//                                }, throwable -> {
+//
+//                                });
         }
 
         @Override public void onBackPressed() {
@@ -139,5 +187,97 @@ public class MainActivity extends AppCompatActivity
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
                 drawer.closeDrawer(GravityCompat.START);
                 return true;
+        }
+
+
+        @Override
+        public void onRequestPermissionsResult(int requestCode,  String[] permissions,  int[] grantResults) {
+                L.object("requestCode"+ requestCode);
+                switch (requestCode) {
+                        case REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS:
+                                Map<String, Integer> perms = new HashMap<String, Integer>();
+                                perms.put(Manifest.permission.RECORD_AUDIO, PackageManager.PERMISSION_GRANTED);
+                                perms.put(Manifest.permission.WRITE_EXTERNAL_STORAGE, PackageManager.PERMISSION_GRANTED);
+                                perms.put(Manifest.permission.CAMERA, PackageManager.PERMISSION_GRANTED);
+                                for (int i = 0; i < permissions.length; i++) {
+                                        perms.put(permissions[i], grantResults[i]);
+                                }
+
+                                if (perms.get(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+                                        && perms.get(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED && perms.get
+                                        (Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
+//                    FrameApplication.frameApplication.initInfo();
+//                                        startLogin();
+                                } else {
+//                                        SplashActivity.this.finish();
+                                }
+                                break;
+
+                        default:
+                                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+                                break;
+                }
+        }
+
+
+        private void applyPermission() {
+                List<String> permissions = new ArrayList<>();
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+                        != PackageManager.PERMISSION_GRANTED) {
+                        permissions.add(Manifest.permission.CAMERA);
+                }
+
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED) {
+                        permissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                }
+
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager
+                        .PERMISSION_GRANTED) {
+                        permissions.add(Manifest.permission.RECORD_AUDIO);
+                }
+
+                String[] permissionArray = new String[permissions.size()];
+                permissionArray = permissions.toArray(permissionArray);
+                if (null == permissionArray || permissionArray.length == 0) {
+//            FrameApplication.frameApplication.initInfo();
+//                        startLogin();
+                } else {
+                        L.object("requestPermissions");
+                        ActivityCompat.requestPermissions(this, permissionArray, REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS);
+                }
+        }
+
+        public void testRxjava(){
+                Observable<String> observable1 = Observable.create(e -> {
+                        e.onNext("hello");
+                        e.onComplete();
+                });
+
+                Observable<String> observable2 = Observable.just("hello");
+                Observable<String> observable3 = Observable.just("hello","ben");
+
+                observable1.subscribe(new Observer<String>() {
+                        @Override
+                        public void onSubscribe(Disposable d) {
+
+                        }
+
+                        @Override
+                        public void onNext(String s) {
+
+                        }
+
+                        @Override
+                        public void onError(Throwable e) {
+
+                        }
+
+                        @Override
+                        public void onComplete() {
+
+                        }
+                });
+
         }
 }

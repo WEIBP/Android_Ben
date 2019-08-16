@@ -1,5 +1,6 @@
 package com.ben.common.net;
 
+import com.ben.common.net.hikvision.HikBean;
 import com.ben.core.worktest.PeopleBean;
 import com.ben.core.worktest.PeopleListBean;
 import com.ben.core.worktest.ResponseBean;
@@ -27,6 +28,11 @@ import retrofit2.http.QueryMap;
  */
 
 public interface DemoService {
+
+
+    @POST("https://10.19.141.36:443/artemis/api/resource/v1/cameras")
+    Observable<String> getCamera(@Body HikBean bean);
+
 
     @GET("contact/list/")
     Observable<PeopleListBean> getList();

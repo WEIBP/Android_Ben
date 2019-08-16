@@ -40,6 +40,11 @@ public class RetrofitManager {
     public static final String CACHE_CONTROL_CACHE = "only-if-cached, max-stale=" + CACHE_STALE_LONG;
     //查询网络的Cache-Control设置，头部Cache-Control设为max-age=0时则不会使用缓存而请求服务器
     public static final String CACHE_CONTROL_NETWORK = "max-age=0";
+
+    public static final String HOST = "10.19.141.36:443";
+    public static final String APP_KEY = "25031676";
+    public static final String APP_SECRET = "r7ZfY41RORIrHjNvlEQD";
+
     private static OkHttpClient mOkHttpClient;
     private  DemoService demoService;
 
@@ -79,7 +84,7 @@ public class RetrofitManager {
                             .cache(cache)
                             .addInterceptor(mRewriteCacheControlInterceptor)
                             .addNetworkInterceptor(mRewriteCacheControlInterceptor)
-                            .addInterceptor(interceptor)
+                            .addInterceptor(new LoggingInterceptor())
                             .retryOnConnectionFailure(true)
                             .connectTimeout(6, TimeUnit.SECONDS)
                             .writeTimeout(6, TimeUnit.SECONDS)
@@ -112,6 +117,7 @@ public class RetrofitManager {
             }
         }
     };
+
 
 
     public Observable<PeopleListBean> getList(){
