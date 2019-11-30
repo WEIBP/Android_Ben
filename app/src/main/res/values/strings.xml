@@ -1,47 +1,47 @@
 <resources>
-  <string name="app_name">Ben</string>
+    <string name="app_name">Ben</string>
 
-  <string name="content_text"> 任务简介\n
+    <string name="content_text"> 任务简介\n
 任务时间：2017年10月18日\n
 任务地点：北京\n
 中国共产党第十九次全国代表大会（简称中共十九大），是在全面建成小康社会决胜阶段、中国特色社会主义发展关键时期召开的一次十分重要的大会，承担着谋划决胜全面建成小康社会、深入推进社会主义现代化建设的重大任务，事关党和国家事业继往开来，事关中国特色社会主义前途命运，事关最广大人民根本利益。
 大会将选举产生新一届中国共产党中央委员会和中国共产党中央纪律检查委员会</string>
-  <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">MainActivity</string>
 
-  <string name="navigation_drawer_open">Open navigation drawer</string>
-  <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 
-  <string name="action_settings">Settings</string>
+    <string name="action_settings">Settings</string>
 
-  <!-- TODO: Remove or change this placeholder text -->
-  <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
-  <string name="notifyTitle">提示</string>
-  <string name="notifyMsg">当前应用缺少必要权限。\n\n请点击\"设置\"-\"权限\"-打开所需权限。</string>
-  <string name="setting">设置</string>
-  <string name="cancel">取消</string>
+    <string name="notifyTitle">提示</string>
+    <string name="notifyMsg">当前应用缺少必要权限。\n\n请点击\"设置\"-\"权限\"-打开所需权限。</string>
+    <string name="setting">设置</string>
+    <string name="cancel">取消</string>
 
-  <string name="battery_saving">低功耗模式</string>
-  <string name="device_sensors">仅设备模式</string>
-  <string name="hight_accuracy">高精度模式</string>
-  <string name="interval">定位周期(ms)：</string>
-  <string name="httpTimeout">网络超时(ms)</string>
-  <string name="location_once">单次定位</string>
-  <string name="needAddress">逆地理编码</string>
-  <string name="cacheAble">开启缓存</string>
-  <string name="onceLastest">提高首次定位精度</string>
-  <string name="gpsFirst">GPS优先</string>
-  <string name="useSensor">使用传感器</string>
-  <string name="wifiScan">开启wifi扫描</string>
+    <string name="battery_saving">低功耗模式</string>
+    <string name="device_sensors">仅设备模式</string>
+    <string name="hight_accuracy">高精度模式</string>
+    <string name="interval">定位周期(ms)：</string>
+    <string name="httpTimeout">网络超时(ms)</string>
+    <string name="location_once">单次定位</string>
+    <string name="needAddress">逆地理编码</string>
+    <string name="cacheAble">开启缓存</string>
+    <string name="onceLastest">提高首次定位精度</string>
+    <string name="gpsFirst">GPS优先</string>
+    <string name="useSensor">使用传感器</string>
+    <string name="wifiScan">开启wifi扫描</string>
 
-  <string name="alarmInterval">唤醒周期(s)</string>
+    <string name="alarmInterval">唤醒周期(s)</string>
 
 
-  <string name="defaultInteval">1000</string>
-  <string name="defaultPort">9000</string>
-  <string name="defaultIP">192.168.21.42</string>
-  <string name="defaultHttpTimeout">30000</string>
+    <string name="defaultInteval">1000</string>
+    <string name="defaultPort">9000</string>
+    <string name="defaultIP">192.168.21.42</string>
+    <string name="defaultHttpTimeout">30000</string>
 
-  <string name="startLocation">开始定位</string>
-  <string name="stopLocation">停止定位</string>
+    <string name="startLocation">开始定位</string>
+    <string name="stopLocation">停止定位</string>
 </resources>

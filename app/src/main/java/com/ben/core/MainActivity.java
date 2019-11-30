@@ -237,6 +237,16 @@ public class MainActivity extends AppCompatActivity
                         permissions.add(Manifest.permission.RECORD_AUDIO);
                 }
 
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager
+                        .PERMISSION_GRANTED) {
+                        permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
+                }
+
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager
+                        .PERMISSION_GRANTED) {
+                        permissions.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+                }
+
                 String[] permissionArray = new String[permissions.size()];
                 permissionArray = permissions.toArray(permissionArray);
                 if (null == permissionArray || permissionArray.length == 0) {

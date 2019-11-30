@@ -10,7 +10,9 @@ import butterknife.BindView;
 import com.ben.R;
 import com.ben.base.BaseFragment;
 import com.ben.base.BaseListItemBean;
+import com.ben.core.androidbase.BLEActivity;
 import com.ben.core.location.Location_Activity;
+import com.ben.core.nomalview.TimerActivity;
 import com.ben.core.personal.traning.TraningActivity;
 import com.ben.core.personal.wifi.WifiActivity;
 import com.ben.core.personal.work.NewZuzhijiagouActivity;
@@ -95,11 +97,31 @@ public class PersonalFragment extends BaseFragment {
                                 v -> startActivity(
                                         new Intent(getActivity(), TraningActivity.class)))));
 
+                mySections.add(new MySection(
+                        new BaseListItemBean("蓝牙", R.drawable.work, "", "", 0,
+                                v -> startActivity(
+                                        new Intent(getActivity(), BLEActivity.class)))));
+
+                mySections.add(new MySection(
+                        new BaseListItemBean("WIFI", R.drawable.work, "", "", 0,
+                                v -> startActivity(
+                                        new Intent(getActivity(), TraningActivity.class)))));
+
+                mySections.add(new MySection(
+                        new BaseListItemBean("Socket", R.drawable.work, "", "", 0,
+                                v -> startActivity(
+                                        new Intent(getActivity(), TraningActivity.class)))));
+
 
                 mySections.add(new MySection(true, "个人"));
                 mySections.add(new MySection(
                         new BaseListItemBean("数据模拟", R.drawable.work, "", "", 0, v -> startActivity(
                                 new Intent(getActivity(), DataSimulationActivity.class)))));
+
+                mySections.add(new MySection(
+                        new BaseListItemBean("倒计时组件", R.drawable.work, "", "", 0, v -> startActivity(
+                                new Intent(getActivity(), TimerActivity.class)))));
+
 
                 FunctionsAdapter functionsAdapter =
                         new FunctionsAdapter(R.layout.item_function_image,

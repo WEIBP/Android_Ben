@@ -10,7 +10,6 @@ import com.ben.R;
 import com.ben.base.BaseActivity;
 import com.ben.common.net.RetrofitManager;
 import com.ben.library.log.L;
-import com.blankj.utilcode.util.EmptyUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;

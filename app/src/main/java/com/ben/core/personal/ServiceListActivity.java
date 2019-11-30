@@ -25,7 +25,7 @@ public class ServiceListActivity extends BaseActivity {
         @Override
         protected void initView() {
 
-                ActivityManager activityManager = (ActivityManager) Utils.getContext().getSystemService(Context.ACTIVITY_SERVICE);
+                ActivityManager activityManager = (ActivityManager) this.getSystemService(Context.ACTIVITY_SERVICE);
                 List<ActivityManager.RunningServiceInfo> info = activityManager.getRunningServices(0x7FFFFFFF);
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
                 ServicesAdapter adapter  = new ServicesAdapter(R.layout.item_functions,info);
