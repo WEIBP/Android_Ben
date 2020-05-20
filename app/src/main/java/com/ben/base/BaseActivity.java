@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import butterknife.ButterKnife;
 import com.ben.R;
 import com.ben.app.AppManager;
 import com.blankj.utilcode.util.LogUtils;
@@ -26,7 +27,6 @@ import org.greenrobot.eventbus.EventBus;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import butterknife.ButterKnife;
 
 public abstract class BaseActivity extends AppCompatActivity
         implements Toolbar.OnMenuItemClickListener {
@@ -49,13 +49,14 @@ public abstract class BaseActivity extends AppCompatActivity
 
                 //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);//设置成全屏模式
                 //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);//强制为横屏
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//竖屏
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);//竖屏
 
                 if (getLayoutId() != 0) {
                         setContentView(getLayoutId());
                 }
                 //管理activity 用于退出时清理
                 AppManager.getAppManager().addActivity(this);
+
                 ButterKnife.bind(this);
                 if (isOpenEvenBus()) {
                         EventBus.getDefault().register(this);
@@ -64,7 +65,7 @@ public abstract class BaseActivity extends AppCompatActivity
         }
 
         protected void setContentView(boolean hasToolbar, boolean hasBack) {
-                toolbar = (Toolbar) findViewById(R.id.toolbar);
+                toolbar =  findViewById(R.id.toolbar);
                 if (hasToolbar) {
                         if (toolbar == null) {
                                 LogUtils.d("toolbar 没有设置");
@@ -84,7 +85,7 @@ public abstract class BaseActivity extends AppCompatActivity
 
         protected void setContentView(boolean hasToolbar, boolean hasBack, String title) {
                 setContentView(hasToolbar, hasBack);
-                if (title != null) {
+                if (toolbar != null && title != null) {
                         toolbar.setTitle(title);
                         toolbar.setTitleTextColor(Color.WHITE);
                 }

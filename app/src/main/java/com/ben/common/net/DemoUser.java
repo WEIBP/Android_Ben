@@ -5,6 +5,5 @@ package com.ben.common.net;
  */
 
 public class DemoUser {
-    private String name;
-    private String age;
+
 }

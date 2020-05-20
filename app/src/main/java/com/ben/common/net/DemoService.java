@@ -4,10 +4,12 @@ import com.ben.common.net.hikvision.HikBean;
 import com.ben.core.worktest.PeopleBean;
 import com.ben.core.worktest.PeopleListBean;
 import com.ben.core.worktest.ResponseBean;
+import com.google.gson.JsonObject;
 import io.reactivex.Observable;
 import java.util.List;
 import java.util.Map;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -32,6 +34,10 @@ public interface DemoService {
 
     @POST("https://10.19.141.36:443/artemis/api/resource/v1/cameras")
     Observable<String> getCamera(@Body HikBean bean);
+
+
+    @GET("http://hq.sinajs.cn/list={stockCode}")
+    Observable<ResponseBody> getStocks(@Path("stockCode") String stockCode);
 
 
     @GET("contact/list/")

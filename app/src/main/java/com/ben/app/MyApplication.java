@@ -3,6 +3,7 @@ package com.ben.app;
 import android.app.Application;
 import android.content.Context;
 
+import androidx.multidex.MultiDex;
 import com.ben.library.BenUtils;
 import com.blankj.utilcode.util.Utils;
 
@@ -20,6 +21,7 @@ public class MyApplication extends Application {
                 mApplicationContext = this;
                 Utils.init(mApplicationContext);
                 BenUtils.init(mApplicationContext);
+                MultiDex.install(this);
         }
 
         // 获取ApplicationContext

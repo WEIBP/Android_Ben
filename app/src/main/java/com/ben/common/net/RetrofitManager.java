@@ -7,6 +7,7 @@ import com.ben.core.worktest.PeopleListActivity;
 import com.ben.core.worktest.PeopleListBean;
 import com.ben.core.worktest.ResponseBean;
 import com.blankj.utilcode.util.NetworkUtils;
+import com.google.gson.JsonObject;
 import io.reactivex.Observable;
 import java.io.File;
 import java.io.IOException;
@@ -17,6 +18,7 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -64,7 +66,7 @@ public class RetrofitManager {
                 .baseUrl(API_SERVER)
                 .client(mOkHttpClient)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-//                .addConverterFactory(StringConverterFactory.create())
+                //.addConverterFactory(StringConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         demoService = retrofit.create(DemoService.class);
@@ -84,7 +86,7 @@ public class RetrofitManager {
                             .cache(cache)
                             .addInterceptor(mRewriteCacheControlInterceptor)
                             .addNetworkInterceptor(mRewriteCacheControlInterceptor)
-                            .addInterceptor(new LoggingInterceptor())
+                            .addInterceptor(interceptor)
                             .retryOnConnectionFailure(true)
                             .connectTimeout(6, TimeUnit.SECONDS)
                             .writeTimeout(6, TimeUnit.SECONDS)
@@ -130,6 +132,10 @@ public class RetrofitManager {
 
     public Observable<ResponseBean> deletePeople( int id){
         return  demoService.deletePeople(id);
+    }
+
+    public Observable<ResponseBody> getStocks( String stockCodes){
+        return  demoService.getStocks(stockCodes);
     }
 
 }

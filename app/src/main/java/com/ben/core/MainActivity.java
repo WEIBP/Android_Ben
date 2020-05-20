@@ -2,10 +2,13 @@ package com.ben.core;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.bluetooth.BluetoothDevice;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import com.ben.common.net.hikvision.HikRetrofitManager;
+import com.blankj.utilcode.util.ConvertUtils;
+import com.blankj.utilcode.util.FileUtils;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -28,6 +31,7 @@ import com.ben.common.net.RetrofitManager;
 import com.ben.core.personal.PersonalFragment;
 import com.ben.library.log.L;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -84,7 +88,6 @@ public class MainActivity extends AppCompatActivity
                                 .replace(R.id.content_view, personalFragment)
                                 .commit();
 
-
                 applyPermission();
 
 
@@ -105,16 +108,15 @@ public class MainActivity extends AppCompatActivity
 
 
 
+                RetrofitManager.builder()
+                                .getStocks("")
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(bean -> {
+                                        L.object(bean);
+                                }, throwable -> {
 
-//                RetrofitManager.builder()
-//                                .getList()
-//                                .subscribeOn(Schedulers.io())
-//                                .observeOn(AndroidSchedulers.mainThread())
-//                                .subscribe(bean -> {
-//                                        L.object(bean);
-//                                }, throwable -> {
-//
-//                                });
+                                });
         }
 
         @Override public void onBackPressed() {

@@ -8,19 +8,19 @@
     <include layout="@layout/toolbar_main" android:id="@+id/layout"/>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/searchBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
         android:onClick="searchBlooth"
         android:text="搜索蓝牙"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintStart_toEndOf="@+id/openBtn"
+        app:layout_constraintTop_toTopOf="@+id/openBtn"
+        />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/openBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -30,16 +30,35 @@
         android:text="检测并打开蓝牙"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout" />
-
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/connectBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:text="连接"
+        android:onClick="connectBLE"
+        app:layout_constraintStart_toEndOf="@+id/searchBtn"
+        app:layout_constraintTop_toTopOf="@+id/searchBtn"
+        />
+    <TextView
+        android:id="@+id/resultTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="匹配"
-        android:onClick="connectDevice"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/openBtn"
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        />
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="开始采集"
+        android:onClick="startCol"
+        app:layout_constraintStart_toStartOf="@+id/openBtn"
+        app:layout_constraintTop_toBottomOf="@+id/searchBtn"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
