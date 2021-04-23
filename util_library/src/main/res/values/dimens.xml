@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="spinner_padding_left">24dp</dimen>
+    <dimen name="one_and_a_half_grid_unit">8dp</dimen>
+
+    <dimen name="padding_navi_panel">10dp</dimen>
+
+    <dimen name="table_view_cell_height">28dp</dimen>
+    <dimen name="table_view_row_header_width">40dp</dimen>
+    <dimen name="table_view_column_header_height">32dp</dimen>
+    <dimen name="tab_minwidth_page">90dp</dimen>
+    <dimen name="sensor_list_margin">4dp</dimen>
+    <dimen name="content_padding_left">4dp</dimen>
+    <dimen name="icon_datapanel_padding">6dp</dimen>
+    <dimen name="size_datapannal">30dp</dimen>
+
+    <dimen name="icon_size">50dp</dimen>
+    <dimen name="icon_padding">12dp</dimen>
+    <dimen name="icon_tab_size">26dp</dimen>
+    <dimen name="device_tab_height">42dp</dimen>
+    <dimen name="tab_indicator_height">3dp</dimen>
+    <dimen name="layout_height">60dp</dimen>
+    <dimen name="line_chart_tab_height">36dp</dimen>
+    <dimen name="table_control_icon_size">40dp</dimen>
+    <dimen name="table_control_icon_padding">10dp</dimen>
+    <dimen name="default_row_header_width">55dp</dimen>
+    <dimen name="default_column_header_height">55dp</dimen>
+    <dimen name="drop_device_width">100dp</dimen>
+    <dimen name="drop_device_height">200dp</dimen>
+    <dimen name="dialog_fitting_height">150dp</dimen>
+    <dimen name="dialog_fitting_width">300dp</dimen>
+    <dimen name="high_control_panel">50dp</dimen>
+    <dimen name="table_column_header_padding">8dp</dimen>
+    <dimen name="dialog_fitting_textsize">14sp</dimen>
+</resources>

@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity
 
         @Override
         public void onRequestPermissionsResult(int requestCode,  String[] permissions,  int[] grantResults) {
-                L.object("requestCode"+ requestCode);
+
                 switch (requestCode) {
                         case REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS:
                                 Map<String, Integer> perms = new HashMap<String, Integer>();
@@ -255,7 +255,6 @@ public class MainActivity extends AppCompatActivity
 //            FrameApplication.frameApplication.initInfo();
 //                        startLogin();
                 } else {
-                        L.object("requestPermissions");
                         ActivityCompat.requestPermissions(this, permissionArray, REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS);
                 }
         }

@@ -7,18 +7,14 @@
     tools:context=".core.personal.stocks.StocksActivity"
     >
 
-  <include
-      layout="@layout/toolbar_main"
-      android:id="@+id/barlayout"
-      />
 
   <TextView
-      android:id="@+id/resultTV"
+      android:id="@+id/result_textview"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="16dp"
       android:layout_marginTop="16dp"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/barlayout"
+      app:layout_constraintTop_toTopOf="parent"
       />
 </androidx.constraintlayout.widget.ConstraintLayout>

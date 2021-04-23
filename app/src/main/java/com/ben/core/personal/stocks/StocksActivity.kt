@@ -1,16 +1,20 @@
 package com.ben.core.personal.stocks
 
 import android.annotation.SuppressLint
+import android.content.pm.ActivityInfo
+import android.os.Bundle
 import android.os.Handler
+import android.os.PersistableBundle
 import android.widget.TextView
-import com.ben.R.id
+import androidx.fragment.app.FragmentActivity
+import com.ben.R
 import com.ben.R.layout
 import com.ben.base.BaseActivity
 import com.ben.common.net.RetrofitManager
 import com.blankj.utilcode.util.LogUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_stocks.resultTV
+import kotlinx.android.synthetic.main.activity_stocks.result_textview
 import okhttp3.ResponseBody
 
 /**
@@ -18,16 +22,25 @@ import okhttp3.ResponseBody
  * created on: 2020/3/9 14:38
  * description:
  */
-class StocksActivity : BaseActivity() {
+class StocksActivity : FragmentActivity() {
     private val myHandler = Handler()
     private val sotckList = mutableListOf<String>()
-    override fun getLayoutId(): Int {
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        initView()
+        setContentView(getLayoutId())
+    }
+
+
+      fun getLayoutId(): Int {
         return layout.activity_stocks
     }
 
-    @SuppressLint("CheckResult") override fun initView() {
+    @SuppressLint("CheckResult")   fun initView() {
 
-        setContentView(true, true, "Stocks")
+//        setContentView(true, true, "Stocks")
 
         sotckList.add("000001")
         sotckList.add("000905")
@@ -40,7 +53,6 @@ class StocksActivity : BaseActivity() {
         sotckList.add("002214")
         sotckList.add("300702")
         sotckList.add("601100 ")
-
 
 
     }
@@ -60,7 +72,6 @@ class StocksActivity : BaseActivity() {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ result: ResponseBody ->
                         val str = result.string()
-                        resultTV.text = str
                         format(str)
                     }) { throwable: Throwable -> LogUtils.d(throwable.toString()) }
             myHandler.postDelayed(this, 5 * 1000.toLong())
@@ -80,8 +91,8 @@ class StocksActivity : BaseActivity() {
 
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onResume() {
+        super.onResume()
         myHandler.post(runable)
     }
 
@@ -92,7 +103,6 @@ class StocksActivity : BaseActivity() {
 
     @SuppressLint("DefaultLocale") private fun format(str: String) {
         val result = StringBuilder()
-
         //var hq_str_sz002307="北新路桥,5.780,5.990,5.720,5.910,5.700,5.710,5.720,23804478,137944096.340,205540,5.710,647400,5.700,82500,5.690,171700,5.680,37400,5.670,92300,5.720,131200,5.730,43005,5.740,22200,5.750,26200,5.760,2020-03-09,15:00:03,00";
         //var hq_str_sh000001="上证指数,2987.1805,3034.5113,2943.2907,2989.2051,2940.7138,0,0,414560736,438143854610,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2020-03-09,15:02:08,00,";
         val list = str.split(";")
@@ -116,7 +126,7 @@ class StocksActivity : BaseActivity() {
                         .append("\n")
             }
         }
-        resultTV.text = result.toString()
+        result_textview.text =  result.toString()
     }
 
     override fun onDestroy() {
