@@ -1,5 +1,6 @@
 自用测试
-1  双击退出
-2 支付功能
-3  友盟集成
-7 jar打包功能
+todolist
+1 集成utils包 上传center
+2 添加 ble 调试功能
+3 抽象usb ble 蓝牙调试功能
+4 一些自定义VIEW的 实例
